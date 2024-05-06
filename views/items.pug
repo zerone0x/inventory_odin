@@ -3,3 +3,9 @@ extends layout
 block content
   h1= title
   p Welcome to #{title}
+  ul
+    each item, i in items
+      li
+        p #{i}
+        p #{item.name}
+        a(href='/items/edit/' + item._id)= item.id 

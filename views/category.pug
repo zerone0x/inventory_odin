@@ -2,4 +2,8 @@ extends layout
 
 block content
   h1= title
-  p Welcome to #{title}
+  p Welcome to #{title} list
+  ul
+    each category, i in categories
+      li
+        a(href='/category/' + category._id)= category.name

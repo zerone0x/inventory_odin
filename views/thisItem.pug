@@ -2,4 +2,28 @@ extends layout
 
 block content
   h1= title
-  p Welcome to #{title}
+  p Welcome to #{title} to Edit 
+  form(method='POST' action='/items/edit/' + item._id)
+    div.form-group
+      label(for='name') Name:
+      input.form-control(type='text' name='name' value=item.name)
+    div.form-group
+      label(for='description') Description:
+      input.form-control(type='text' name='description' value=item.description)
+    div.form-group
+      label(for='price') Price:
+      input.form-control(type='number' name='price' value=item.price)
+    div.form-group
+      label(for='quantity') Stock:
+      input.form-control(type='number' name='quantity' value=item.quantity)
+    div.form-group
+      label(for='category') Category:
+      select.form-control(name='category')
+        each category in categories
+          option(value=category._id selected=(category._id == item.category))= category.name
+    button.btn.btn-primary(type='submit') Submit
+    br
+  form(method='POST', action='/items/delete/' + item._id)
+    button.btn.btn-danger(type='submit') Delete
+  br
+  a.btn.btn-secondary(href='/items/' + item._id) Cancel

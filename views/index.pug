@@ -3,3 +3,17 @@ extends layout
 block content
   h1= title
   p Welcome to #{title}
+  ul
+    li
+      a(href='/items') View Items
+    li
+      a(href='/items/new') Add Item
+    li
+      a(href='/category') View Categories
+    li
+      a(href='/category/new') Add Category
+  h2 Items
+  ul
+    each item, i in items
+      li
+        a(href='/items/edit/' + item._id)= item.name

@@ -1,0 +1,12 @@
+extends layout
+
+h1 Item Detail
+h2= item.name
+p= item.description
+p= item.price
+p= item.stock
+p= item.category
+p= item.image
+a(href='/items/edit/' + item._id) Edit
+a(href='/items/delete/' + item._id) Delete
+a(href='/items') Back
